@@ -13,10 +13,6 @@ export default function ModalInfos({
   idUser,
   dadosUser,
 }: any) {
-  /* useEffect(() => {
-    findUser();
-  }, []); */
-
   return (
     <div>
       <Dialog
