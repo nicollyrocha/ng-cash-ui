@@ -49,7 +49,7 @@ export default function Navbar({ balance, setBalance }: any) {
 
   useEffect(() => {
     searchBalance();
-  }, []);
+  });
 
   async function searchBalance() {
     Users.getBalance(Number(localStorage.getItem("id")))
