@@ -75,33 +75,41 @@ export default function ModalTransaction({
 
   async function confirmaTransferencia() {
     if (error.value === false && valueToSend !== 0 && creditedAccount !== "") {
-      const dataTransaction = {
-        creditedAccount: creditedAccount,
-        value: valueToSend,
-        debitedAccount: Number(localStorage.getItem("id")),
-        balance: balance,
-      };
-      setIsLoading(true);
-      Transactions.transferir(dataTransaction)
-        .then((data) => {
-          setSucesso(true);
-          setMsgSucesso("Transação realizada com sucesso!");
-          setIsLoading(false);
-          setValueToSend(0);
-          setCreditedAccount("");
-          setOpenModal(false);
-          window.location.reload();
-        })
-        .catch((err) => {
-          setError({ ...error, transaction: true });
-          setSucesso(false);
-          setMsgSucesso("");
-          setMsgError({
-            ...msgError,
-            transaction: `${err.response.data.message}`,
+      if (creditedAccount !== localStorage.getItem("username")) {
+        const dataTransaction = {
+          creditedAccount: creditedAccount,
+          value: valueToSend,
+          debitedAccount: Number(localStorage.getItem("id")),
+          balance: balance,
+        };
+        setIsLoading(true);
+        Transactions.transferir(dataTransaction)
+          .then((data) => {
+            setSucesso(true);
+            setMsgSucesso("Transação realizada com sucesso!");
+            setIsLoading(false);
+            setValueToSend(0);
+            setCreditedAccount("");
+            setOpenModal(false);
+            window.location.reload();
+          })
+          .catch((err) => {
+            setError({ ...error, transaction: true });
+            setSucesso(false);
+            setMsgSucesso("");
+            setMsgError({
+              ...msgError,
+              transaction: `${err.response.data.message}`,
+            });
+            setIsLoading(false);
           });
-          setIsLoading(false);
+      } else {
+        setError({ ...error, transaction: true });
+        setMsgError({
+          ...msgError,
+          transaction: `Usernames devem ser distintos.`,
         });
+      }
     } else {
       setError({ ...error, transaction: true });
       setMsgError({
