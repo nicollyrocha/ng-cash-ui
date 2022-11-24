@@ -40,38 +40,20 @@ export default function TableTransactions() {
     Transactions.getTransactionsFromId(Number(localStorage.getItem("id")))
       .then((data) => {
         setRows(data.data.transaction);
-        console.log("data", data);
       })
       .catch((err) => {
-        console.log("aaa", err);
-        /* setError({ ...error, transaction: true });
-          setSucesso(false);
-          setMsgSucesso("");
-          setMsgError({
-            ...msgError,
-            transaction: `${err.response.data.message}`,
-          });
-          setIsLoading(false); */
+        console.log(err);
       });
   }
 
   async function findUser() {
-    console.log("AAAAAAAAAAAAAAAAAAAAA");
     if (idUser) {
       Users.getUsername(Number(idUser))
         .then((data) => {
           setDadosUser(data);
         })
         .catch((err) => {
-          console.log("aaa", err);
-          /* setError({ ...error, transaction: true });
-            setSucesso(false);
-            setMsgSucesso("");
-            setMsgError({
-              ...msgError,
-              transaction: `${err.response.data.message}`,
-            });
-            setIsLoading(false); */
+          console.log(err);
         });
     }
   }

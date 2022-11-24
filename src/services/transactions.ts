@@ -15,12 +15,8 @@ const requests = {
 };
 
 export const Transactions = {
-    /* getPosts: (): Promise<PostType[]> => requests.get('posts'),
-    getAPost: (id: number): Promise<PostType> => requests.get(`posts/${id}`), */
     transferir: (transaction: Transaction): Promise<Transaction> =>
         requests.put('transferir', transaction, { headers: { "Authorization": `Bearer ${localStorage.getItem("token")}` } }),
     getTransactionsFromId: (id: number): Promise<any> => requests.get(`transactions/${id}`, { headers: { "Authorization": `Bearer ${localStorage.getItem("token")}` } }),
-    /* updatePost: (post: PostType, id: number): Promise<PostType> =>
-        requests.put(`posts/${id}`, post),
-    deletePost: (id: number): Promise<void> => requests.delete(`posts/${id}`), */
+
 };

@@ -78,10 +78,7 @@ export default function ModalTransaction({
   }
 
   async function confirmaTransferencia() {
-    console.log("aaaa", error.value, valueToSend, creditedAccount, idCredited);
-
     if (error.value === false && valueToSend !== 0 && creditedAccount !== "") {
-      console.log("ENTROU");
       const dataTransaction = {
         creditedAccount: creditedAccount,
         value: valueToSend,
@@ -91,7 +88,6 @@ export default function ModalTransaction({
       setIsLoading(true);
       Transactions.transferir(dataTransaction)
         .then((data) => {
-          console.log("data", data);
           setSucesso(true);
           setMsgSucesso("Transação realizada com sucesso!");
           setIsLoading(false);
@@ -101,7 +97,6 @@ export default function ModalTransaction({
           window.location.reload();
         })
         .catch((err) => {
-          console.log("aaa", err);
           setError({ ...error, transaction: true });
           setSucesso(false);
           setMsgSucesso("");

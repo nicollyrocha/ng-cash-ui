@@ -64,7 +64,6 @@ export default function Navbar({ balance, setBalance }: any) {
   async function onClickLogout() {
     Users.logout(Number(localStorage.getItem("id")))
       .then((data) => {
-        console.log("dataaaa", data);
         localStorage.removeItem("id");
         localStorage.removeItem("token");
         localStorage.removeItem("username");

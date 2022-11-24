@@ -38,7 +38,6 @@ export default function ModalCadastro({
     setIsLoading(true);
     Users.createUsers(dataUser)
       .then((data) => {
-        console.log("data", data);
         setIsLoading(false);
         setUsername("");
         setPassword("");
@@ -47,7 +46,6 @@ export default function ModalCadastro({
         setMsgSucesso("Usuário cadastrado com sucesso!");
       })
       .catch((err) => {
-        console.log("aaa", err);
         setError({ ...error, cadastro: true });
         setErrorMsg({ ...errorMsg, cadastro: `${err.response.data.message}` });
         setIsLoading(false);

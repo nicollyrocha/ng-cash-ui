@@ -18,8 +18,6 @@ const requests = {
 };
 
 export const Users = {
-	/* getPosts: (): Promise<PostType[]> => requests.get('posts'),
-	getAPost: (id: number): Promise<PostType> => requests.get(`posts/${id}`), */
 	createUsers: (user: User): Promise<User> =>
 		requests.post('register', user, {}),
 	login: (user: User): Promise<User> =>
@@ -31,18 +29,9 @@ export const Users = {
 	getUsername: (id: number): Promise<User> => requests.get(`user/${id}`, { headers: { "Authorization": `Bearer ${localStorage.getItem("token")}` } }),
 	logout: (id: number): Promise<User> => requests.get(`logout`, { headers: { "Authorization": `Bearer ${localStorage.getItem("token")}` } })
 
-	/* updatePost: (post: PostType, id: number): Promise<PostType> =>
-		requests.put(`posts/${id}`, post),
-	deletePost: (id: number): Promise<void> => requests.delete(`posts/${id}`), */
+
 };
-console.log("alo", Users.getBalance)
 export const Accounts = {
-	/* getPosts: (): Promise<PostType[]> => requests.get('posts'),
-	getAPost: (id: number): Promise<PostType> => requests.get(`posts/${id}`), */
 	createAccount: (account: Account): Promise<Account> =>
 		requests.post('registeraccount', account, {}),
-
-	/* updatePost: (post: PostType, id: number): Promise<PostType> =>
-		requests.put(`posts/${id}`, post),
-	deletePost: (id: number): Promise<void> => requests.delete(`posts/${id}`), */
 };

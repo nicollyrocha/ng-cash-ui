@@ -64,23 +64,20 @@ export function LoginPage() {
   });
 
   async function onClickLogin() {
-    console.log("aaa", user, password);
     const dataUser = { username: user, password: password, token: "" };
     setIsLoading(true);
     Users.login(dataUser)
       .then((data) => {
-        console.log("data", data);
         setIsLoading(false);
         setUser("");
         setPassword("");
-        console.log();
+
         localStorage.setItem("username", user);
         localStorage.setItem("id", `${data.id}`);
         localStorage.setItem("token", `${data.token}`);
         navigate("/home");
       })
       .catch((err) => {
-        console.log("aaa", err);
         setError({ ...error, cadastro: true });
         setErrorMsg({ ...errorMsg, cadastro: `${err.response.data.message}` });
         setIsLoading(false);
