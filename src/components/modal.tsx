@@ -13,12 +13,9 @@ import { Transactions } from "../services/transactions";
 import CircularProgress from "@mui/material/CircularProgress";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert, { AlertProps } from "@mui/material/Alert";
-import { useNavigate } from "react-router-dom";
-import { Users } from "../services/user";
 
 export default function ModalTransaction({
   balance,
-  setBalance,
   openModal,
   setOpenModal,
 }: any) {
@@ -37,7 +34,6 @@ export default function ModalTransaction({
   const [isLoading, setIsLoading] = useState(false);
   const [sucesso, setSucesso] = useState(false);
   const [msgSucesso, setMsgSucesso] = useState("");
-  const [idCredited, setIdCredited] = useState(0);
 
   const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
     props,

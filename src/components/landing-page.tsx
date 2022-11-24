@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import TableTransactions from "./table/table-transacoes";
 import Navbar from "./navbar/navbar";
 import { createTheme } from "@mui/material";

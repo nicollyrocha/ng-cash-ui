@@ -1,16 +1,13 @@
-import React, { useState, useEffect } from "react";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-import { Users } from "../../services/user";
 
 export default function ModalInfos({
   openModalInfos,
   setOpenModalInfos,
-  idUser,
   dadosUser,
 }: any) {
   return (
